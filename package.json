@@ -1,0 +1,23 @@
+{
+  "name": "x-mysql",
+  "version": "0.0.1",
+  "description": "use ssh tunnel connect to mysql ",
+  "main": "dist/mysql.js",
+  "scripts": {
+    "build": "tsc",
+    "clear": "node tools/clear.js",
+    "dev": "tsc && node dist/dev.js"
+  },
+  "dependencies": {
+    "mysql": "^2.17.1",
+    "tunnel-ssh": "^4.1.4"
+  },
+  "devDependencies": {
+    "@types/mysql": "^2.15.6",
+    "@types/node": "^10.9.4",
+    "@types/tunnel-ssh": "^4.1.0"
+  },
+  "repository": "https://github.com/koaqiu/x-mysql.git",
+  "author": "koaqiu <koaqiu@gmail.com>",
+  "license": "MIT"
+}
