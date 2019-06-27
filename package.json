@@ -1,5 +1,5 @@
 {
-  "name": "x-mysql",
+  "name": "x-mysql-ssh",
   "version": "0.0.1",
   "description": "use ssh tunnel connect to mysql ",
   "main": "dist/mysql.js",
