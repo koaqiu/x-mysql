@@ -450,7 +450,7 @@ export class MySQL {
         return new Promise<IDbResult>((resolve, reject) => {
             this.Connection.query(sql, bindData, (err: mysql.MysqlError | null, results?: any, fields?: mysql.FieldInfo[]) => {
                 if (err) {
-                    reject(err);
+                    resolve(fixCatch(err));
                 } else {
                     resolve(fixResults(results, fields));
                 }
@@ -463,8 +463,11 @@ export class MySQL {
     public close = () => new Promise<void>((resolve, reject) => {
         this.Connection.end((err: mysql.MysqlError) => {
             if (err) reject(err);
-            else resolve();
-        })
+            else {
+                this._tunnel.close();
+                resolve()
+            };
+        });
     });
     /**
      * 立即关闭连接，抛弃数据
